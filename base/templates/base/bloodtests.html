@@ -1,0 +1,27 @@
+<!-- base/bloodtest_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Tests</title>
+</head>
+<body>
+
+<h1>Your Recent Blood Tests</h1>
+
+{% if blood_tests_list %}  
+    {% for blood_test in blood_tests_list %}
+        <script type="text/javascript">
+            var num = blood_test.blood_test_num;
+        </script>
+        <div style="display:none;"><var> num = blood_test.blood_test_num;</var></div>
+
+        <p><a href="http://127.0.0.1:8000/blood-tests/" onclick="location.href=this.href+num;return false;">Blood test {{ blood_test.blood_test_num}} - {{blood_test.date}}</a></p>
+
+    {% endfor %}
+{% else %}
+    <p>No blood tests available.</p>
+{% endif %}
+
+</body>
+</html>

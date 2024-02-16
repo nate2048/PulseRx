@@ -1,0 +1,25 @@
+<!-- base/bloodtest_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Test with Markers</title>
+</head>
+<body>
+
+{% if markers %}
+<h1> Test {{ markers.id }} Results</h1>
+
+<ul>
+    {% for blood_marker in markers.blood_markers %}
+        <li>
+            Marker: {{ blood_marker.name }} - Value: {{ blood_marker.value }}
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Blood test not available.</p>
+{% endif %}
+
+</body>
+</html>
