@@ -1,0 +1,29 @@
+<!-- base/bloodtest_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Tests with Markers</title>
+</head>
+<body>
+
+<h1>Your Recent Results</h1>
+
+{% if blood_tests_with_markers %}
+    {% for blood_test_data in blood_tests_with_markers %}
+        <p>Date: {{ blood_test_data.blood_test.test_date}}</p>
+
+        <ul>
+            {% for blood_marker in blood_test_data.blood_markers %}
+                <li>
+                    Marker: {{ blood_marker.name }} - Value: {{ blood_marker.value }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% else %}
+    <p>No blood tests available.</p>
+{% endif %}
+
+</body>
+</html>
