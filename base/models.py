@@ -17,7 +17,6 @@ class BloodTest(models.Model):
 
     def __str__(self):
         return f"Blood Test for {self.user.username} on {self.test_date}"
-
 class BloodMarker(models.Model):
     blood_test = models.ForeignKey(BloodTest, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)

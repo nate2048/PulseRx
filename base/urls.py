@@ -1,11 +1,10 @@
-from django.urls import path
-from .views import dashboard
+from django.urls import path, include
+from .views import view_blood_tests
 
 
 urlpatterns = [
-
-    path('', dashboard.as_view(), name='dashboard')
-
+    path('blood-tests/', view_blood_tests, name='view_blood_tests'),
+    path('', view_blood_tests, name='dashboard'),
 ]
 
 
