@@ -1,27 +1,48 @@
 from django.shortcuts import render
-from .models import BloodTest, BloodMarker
+from rest_framework.views import APIView 
+from .models import *
+from rest_framework.response import Response 
+from .serializer import *
 
 def view_dashboard(request):
     return render(request, 'base/dashboard.html')
 
-def view_blood_test(request):
-    blood_tests = BloodTest.objects.filter(user=request.user)
+class BloodTestView(APIView):
 
-    blood_tests_list = []
+    serializer_class = TestSerializer
 
-    for i, blood_test in enumerate(blood_tests):
+    def get(self, request): 
+        detail = [ {"test_date": detail.test_date,"id": detail.id}  
+        for detail in BloodTest.objects.all()] # wrong need to change dont know how bc filtering by user doesnt work
+        return Response(detail) 
+    
+    def post(self, request): 
+  
+        serializer = TestSerializer(data=BloodTest.objects.filter(user=request.user.id)) 
+        if serializer.is_valid(raise_exception=True): 
+            serializer.save() 
+            return Response(serializer.data) 
 
-        test_data = {
-            'user': blood_test.user,
-            'blood_test_num': blood_test.test_id,
-            'date': blood_test.test_date,
-        }
 
-        blood_tests_list.append(test_data)
 
-    context = {'blood_tests_list': blood_tests_list}
+# def view_blood_test(request):
+#     blood_tests = BloodTest.objects.filter(user=request.user)
 
-    return render(request, 'base/bloodtests.html', context)
+#     blood_tests_list = []
+
+#     for i, blood_test in enumerate(blood_tests):
+
+#         test_data = {
+#             'user': blood_test.user,
+#             'blood_test_num': blood_test.test_id,
+#             'date': blood_test.test_date,
+#         }
+
+#         blood_tests_list.append(test_data)
+
+#     context = {'blood_tests_list': blood_tests_list}
+
+#     return render(request, 'base/bloodtests.html', context)
 
 
 def view_blood_test_metrics(request, id):
@@ -68,8 +89,3 @@ def view_complete_blood_tests(request):
     context = {'blood_tests_with_markers': blood_tests_with_markers}
 
     return render(request, 'base/bloodtest_list.html', context)
-
-
-
-
-
