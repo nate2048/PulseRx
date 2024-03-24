@@ -14,7 +14,7 @@ class BloodTestView(APIView):
     serializer_class = TestSerializer
 
     def get(self, request):
-        detail = [{"test_date": detail.test_date, "num": detail.id}
+        detail = [{"test_date": detail.test_date, "num": detail.num}
                   for detail in BloodTest.objects.filter(user=request.user)]
         return Response(detail)
 
@@ -68,6 +68,37 @@ class TestAndMarkerView(APIView):
 
 
         return Response(data)
+    
+    def post(self, request):
+        serializer = MarkerSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+    
+    
+class TestNum(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (SessionAuthentication,)
+
+    serializer_class = MarkerSerializer
+
+    def get(self, request):
+        selected_user = request.user
+
+        test_num = 1
+        blood_tests = BloodTest.objects.filter(user=selected_user)
+
+        for test in blood_tests:
+            if(test_num < test.num):
+                test_num = test.num
+
+        data = {'test_num': test_num + 1}
+
+        return Response(data)
+
+
+
+
 
 # def post(self, request):
 
