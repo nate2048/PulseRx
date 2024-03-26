@@ -1,6 +1,6 @@
 from rest_framework import serializers 
 from .models import *
-from users_api.serializers import UserSerializer
+
 
 
 class TestSerializer(serializers.ModelSerializer): 
@@ -14,3 +14,7 @@ class MarkerSerializer(serializers.ModelSerializer):
     class Meta: 
         model = BloodMarker 
         fields = ['blood_test', 'name', 'value']
+
+
+class allMarkerSerialzier(serializers.Serializer):
+    blood_markers = MarkerSerializer(many=True)

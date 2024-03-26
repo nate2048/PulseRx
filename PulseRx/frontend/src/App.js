@@ -1,19 +1,12 @@
 import './App.css';
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-
-import Home from "./pages/home";
-import Entry from "./pages/entry";
-import Insights from "./pages/insights";
-import Chat from "./pages/chat";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -24,7 +17,6 @@ const client = axios.create({
 });
 
 function App() {
-
   const [currentUser, setCurrentUser] = useState();
   const [registrationToggle, setRegistrationToggle] = useState(false);
   const [email, setEmail] = useState('');
@@ -36,45 +28,33 @@ function App() {
 
   useEffect(() => {
     client.get("/api/user")
-    .then(function(res) {
-      setCurrentUser(true);
-      console.log("res");
-    })
-    .catch(function(error) {
-      setCurrentUser(false);
-    });
+      .then(function (res) {
+        setCurrentUser(true);
+        console.log("res");
+      })
+      .catch(function (error) {
+        setCurrentUser(false);
+      });
   }, []);
 
-  function update_form_btn() {
-    if (registrationToggle) {
-      document.getElementById("form_btn").innerHTML = "Register";
-      setRegistrationToggle(false);
-    } else {
-      document.getElementById("form_btn").innerHTML = "Log in";
-      setRegistrationToggle(true);
-    }
+  function updateFormBtn() {
+    setRegistrationToggle(!registrationToggle);
   }
 
   function submitRegistration(e) {
     e.preventDefault();
-    client.post(
-      "/api/register",
-      {
+    client.post("/api/register", {
+      email: email,
+      username: username,
+      age: age,
+      sex: sex,
+      ethnicity: ethnicity,
+      password: password
+    }).then(function (res) {
+      client.post("/api/login", {
         email: email,
-        username: username,
-        age: age,
-        sex: sex,
-        ethnicity:ethnicity,
         password: password
-      }
-    ).then(function(res) {
-      client.post(
-        "/api/login",
-        {
-          email: email,
-          password: password
-        }
-      ).then(function(res) {
+      }).then(function (res) {
         setCurrentUser(true);
       });
     });
@@ -82,23 +62,17 @@ function App() {
 
   function submitLogin(e) {
     e.preventDefault();
-    client.post(
-      "/api/login",
-      {
-        email: email,
-        password: password
-      }
-    ).then(function(res) {
+    client.post("/api/login", {
+      email: email,
+      password: password
+    }).then(function (res) {
       setCurrentUser(true);
     });
   }
 
   function submitLogout(e) {
     e.preventDefault();
-    client.post(
-      "/api/logout",
-      {withCredentials: true}
-    ).then(function(res) {
+    client.post("/api/logout", { withCredentials: true }).then(function (res) {
       setCurrentUser(false);
     });
   }
@@ -110,10 +84,10 @@ function App() {
           <Container>
             <Navbar.Brand href="/">Pulse Rx</Navbar.Brand>
             <Nav className="me-auto">
-          <Nav.Link as={Link} to="/">Health</Nav.Link>
-            <Nav.Link as={Link} to="/insights">Insights</Nav.Link>
-            <Nav.Link as={Link} to="/chat">Chat</Nav.Link>
-            <Nav.Link as={Link} to="/newData">New Data</Nav.Link>
+              <Nav.Link as={Link} to="/">Health</Nav.Link>
+              <Nav.Link as={Link} to="/insights">Insights</Nav.Link>
+              <Nav.Link as={Link} to="/chat">Chat</Nav.Link>
+              <Nav.Link as={Link} to="/newData">New Data</Nav.Link>
             </Nav>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
@@ -126,89 +100,101 @@ function App() {
           </Container>
         </Navbar>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/newData" element={<Entry />} />
-          <Route path="/insights" element={<Insights />} />
-          <Route path="/chat" element={<Chat />} />
+          {/* Define your routes here */}
         </Routes>
       </Router>
     );
   }
+
   return (
-    <div>
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand>Pulse Rx</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            <Button id="form_btn" onClick={update_form_btn} variant="light">Register</Button>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    {
-      registrationToggle ? (
-        <div className="center">
-          <Form onSubmit={e => submitRegistration(e)}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Age</Form.Label>
-              <Form.Control type="number" placeholder="Enter age" value={age} onChange={e => setAge(e.target.value)} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Sex</Form.Label>
-              <Form.Control type="text" placeholder="M or F" value={sex} onChange={e => setSex(e.target.value)} />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicSelect">
-              <Form.Label>Ethnicity</Form.Label>
-              <Form.Control as="select" value={ethnicity} onChange={e => setEthnicity(e.target.value)}>
-                <option>Select Ethnicity</option>
-                <option value="Black">Black</option>
-                <option value="White">White</option>
-                <option value="Other">Other</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </div>        
-      ) : (
-        <div className="center">
-          <Form onSubmit={e => submitLogin(e)}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </div>
-      )
-    }
+    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">{registrationToggle ? 'Register' : 'Sign in'} to your account</h2>
+      </div>
+
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form className="space-y-6" onSubmit={registrationToggle ? submitRegistration : submitLogin}>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+            <div className="mt-2">
+              <input id="email" name="email" type="email" autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={email} onChange={e => setEmail(e.target.value)} />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between">
+              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
+              <div className="text-sm">
+                <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+              </div>
+            </div>
+            <div className="mt-2">
+              <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={password} onChange={e => setPassword(e.target.value)} />
+            </div>
+          </div>
+
+          {registrationToggle && (
+            <>
+              <div>
+                <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                <div className="mt-2">
+                  <input id="username" name="username" type="text" autoComplete="username" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={username} onChange={e => setUsername(e.target.value)} />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label htmlFor="age" className="block text-sm font-medium leading-6 text-gray-900">Age</label>
+                  {/* Add more fields as needed for registration */}
+                </div>
+                <div className="mt-2">
+                  <input id="age" name="age" type="number" autoComplete="age" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring
+- inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={age} onChange={e => setAge(e.target.value)} />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label htmlFor="sex" className="block text-sm font-medium leading-6 text-gray-900">Sex</label>
+                  {/* Add more fields as needed for registration */}
+                </div>
+                <div className="mt-2">
+                  <input id="sex" name="sex" type="text" autoComplete="sex" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={sex} onChange={e => setSex(e.target.value)} />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label htmlFor="ethnicity" className="block text-sm font-medium leading-6 text-gray-900">Ethnicity</label>
+                  {/* Add more fields as needed for registration */}
+                </div>
+                <div className="mt-2">
+                  <select id="ethnicity" name="ethnicity" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={ethnicity} onChange={e => setEthnicity(e.target.value)}>
+                    <option>Select Ethnicity</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </>
+          )}
+
+          <div>
+            <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              {registrationToggle ? 'Register' : 'Sign in'}
+            </button>
+          </div>
+        </form>
+
+        {!registrationToggle && (
+          <p className="mt-10 text-center text-sm text-gray-500">
+            Not a member?
+            <button className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" onClick={updateFormBtn}>Register now</button>
+          </p>
+        )}
+      </div>
     </div>
   );
 }
