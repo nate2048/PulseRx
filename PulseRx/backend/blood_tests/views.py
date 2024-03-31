@@ -4,7 +4,6 @@ from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authentication import SessionAuthentication
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from .models import *
 from .serializers import *
 
@@ -19,13 +18,12 @@ class BloodTestView(APIView):
                   for detail in BloodTest.objects.filter(user=request.user)]
         return Response(detail)
 
-    @method_decorator(csrf_protect, name='dispatch')
     def post(self, request):
-        self.client.force_authenticate(self.user)
-        serializer = TestSerializer(data={"user": request.user.pk} | request.data)
+        
+        serializer = TestSerializer(data= {"user": request.user.pk} | request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data)
+            blood_test = serializer.save()
+            return Response(blood_test.pk)
 
 
 class TestAndMarkerView(APIView):

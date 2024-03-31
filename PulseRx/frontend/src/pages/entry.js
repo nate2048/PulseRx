@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import jQuery from 'jquery';
 axios.defaults.withCredentials = true;
 
 
@@ -20,45 +22,72 @@ function BloodMarkerForm() {
   };
 
     // CBC 
-    const [WBC, setWBC] = useState(-1);
-    const [RBC, setRBC] = useState(-1);
-    const [hemoglobin, setHemoglobin] = useState(-1);
+    const [sodium, setSodium] = useState(-1);
+    const [potassium, setPotassium] = useState(-1);
 
-    const markers = [sodium, potassium, chloride, C02, ureaNitrogren, creatinine, glucose, calcium, 
-                    protein, albumin, bilirubin, cholesterol, triglycerides, HDL, WBC, RBC, hemoglobin]; 
+    // const markers = [sodium, potassium, chloride, C02, ureaNitrogren, creatinine, glucose, calcium, 
+    //                 protein, albumin, bilirubin, cholesterol, triglycerides, HDL, WBC, RBC, hemoglobin]; 
 
-    const markers_names = ["sodium", "potassium", "chloride", "C02", "ureaNitrogren", "creatinine", "glucose",
-     "calcium", "protein", "albumin", "bilirubin", "cholesterol", "triglycerides", "HDL", "WBC", "RBC", "hemoglobin"]; 
+    const markers = [sodium, potassium];
+
+    // const markers_names = ["sodium", "potassium", "chloride", "C02", "ureaNitrogren", "creatinine", "glucose",
+    //  "calcium", "protein", "albumin", "bilirubin", "cholesterol", "triglycerides", "HDL", "WBC", "RBC", "hemoglobin"]; 
+
+    const markers_names = ["sodium", "potassium"];
+
+    const client = axios.create({
+        baseURL: "http://127.0.0.1:8000"
+    });
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var CSRF_TOKEN = getCookie('csrftoken');
 
     function submitTest(e) {
         e.preventDefault();
 
         var testNum;
-        let test;
+        var test;
+        client.defaults.headers.common['x-csrftoken'] = CSRF_TOKEN;
+
         client.get("/api/test_num").
         then(function(response, testNum) {
-            console.log(response.data.test_num)
+            
             testNum = response.data.test_num
 
             client.post("/api/tests", {num: testNum})
             .then(function(response) {
-                console.log(response.data);
+                
                 test = response.data;
+
+                for(let i = 0; i < markers.length; i++) {
+                    if(markers[i] !== -1){
+                        client.post(
+                            "/api/markers",
+                            {
+                                blood_test: test,
+                                name: markers_names[i],
+                                value: markers[i],
+                            }
+                          );
+                    }
+                }
             });
         });
 
-        for(let i = 0; i < markers.length; i++) {
-            if(markers[i] !== -1){
-                client.post(
-                    "/api/markers",
-                    {
-                        test: test,
-                        name: markers_names[i],
-                        value: markers[i],
-                    }
-                  );
-            }
-        }
       }
 
     return (
@@ -130,10 +159,6 @@ function BloodMarkerForm() {
                 </Button>
             </Form>
         </div>
-      ))}
-      <button type="button" onClick={addBloodMarker}>Add Blood Marker</button>
-      <button type="submit">Submit</button>
-    </form>
   );
 }
 

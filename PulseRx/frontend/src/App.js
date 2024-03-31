@@ -8,6 +8,11 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+import Home from "./pages/home";
+import Entry from "./pages/entry";
+import Insights from "./pages/insights";
+import Chat from "./pages/chat";
+
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
@@ -100,6 +105,10 @@ function App() {
           </Container>
         </Navbar>
         <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/newData" element={<Entry />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </Router>
     );
