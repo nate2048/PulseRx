@@ -8,7 +8,6 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from .models import *
 from .serializers import *
 
-
 class BloodTestView(APIView):
     permission_classes = (permissions.AllowAny,)
     authentication_classes = (SessionAuthentication,)
@@ -22,16 +21,11 @@ class BloodTestView(APIView):
 
     @method_decorator(csrf_protect, name='dispatch')
     def post(self, request):
-        blood_test = BloodTest.objects.create(user=request.user)
-
-        serializer = MarkerSerializer(data=request.data, many=True)
-
-        if serializer.is_valid():
-            blood_markers_data = serializer.validated_data
-            blood_markers = [BloodMarker(blood_test=blood_test, **data) for data in blood_markers_data]
-            BloodMarker.objects.bulk_create(blood_markers)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        self.client.force_authenticate(self.user)
+        serializer = TestSerializer(data={"user": request.user.pk} | request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
 
 
 class TestAndMarkerView(APIView):
@@ -77,7 +71,7 @@ class TestAndMarkerView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-
+    
 
 class TestNum(APIView):
     permission_classes = (permissions.IsAuthenticated,)
