@@ -5,66 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/../../Domácí úkoly 21.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Domácí úkoly 22.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mod 7.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/CodeGenVisitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ColorTuple.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ColorTupleFloat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ConsoleIO$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/FileURLIO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ImageCompare.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ImageOps$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ImageOps$BoolOP.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ImageOps$OP.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ImageOps.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/SetAll.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/javaCompilerClassLoader/PLCLangExec.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/test/Assignment6StarterTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/test/Assignment6Tests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/CodeGenVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/ColorTuple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/ColorTupleFloat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/FileURLIO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/ImageCompare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/ImageOps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/SetAll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/javaCompilerClassLoader/PLCLangExec.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/test/Assignment6StarterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/test/Assignment6Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/CompilerComponentFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/CompilerComponentFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/IParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/IParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/LexicalException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/LexicalException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/SymbolTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/SymbolTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/SyntaxException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/SyntaxException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckVisitor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckVisitor$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckVisitor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckVisitor$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/TypeCheckVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/lexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ConsoleIO$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ConsoleIO$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ConsoleIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/ConsoleIO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/PLCException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/PLCException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/javaCompilerClassLoader/DynamicClassLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/runtime/javaCompilerClassLoader/DynamicClassLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/test/Assignment5TestStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/test/Assignment5TestStarter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/token.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Project/edu/ufl/cise/plc/token.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/CompilerComponentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/CompilerComponentFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/IParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/IParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/LexicalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/LexicalException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/SymbolTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/SyntaxException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/SyntaxException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/TypeCheckException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/TypeCheckException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/TypeCheckVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/TypeCheckVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/ConsoleIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/ConsoleIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/PLCException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/PLCException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/javaCompilerClassLoader/DynamicClassLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/runtime/javaCompilerClassLoader/DynamicClassLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/test/Assignment5TestStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/edu/ufl/cise/plc/test/Assignment5TestStarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PulseRx/frontend/src/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +52,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/rudyberry/Desktop/CS/PulseRx",
+    "last_opened_file_path": "/Users/rudyberry/Desktop/CS/PulseRx/PulseRx/frontend/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -118,7 +63,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PulseRx/frontend/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PulseRx/frontend/src" />
       <recent name="$PROJECT_DIR$/base_react/src" />
       <recent name="$PROJECT_DIR$/base" />
       <recent name="$PROJECT_DIR$/base/templates/base" />
@@ -149,6 +98,7 @@
       <workItem from="1710804321999" duration="5432000" />
       <workItem from="1710891766444" duration="276000" />
       <workItem from="1711063748765" duration="7879000" />
+      <workItem from="1711841919052" duration="6222000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
