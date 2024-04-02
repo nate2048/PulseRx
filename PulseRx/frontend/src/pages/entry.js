@@ -56,23 +56,23 @@ function BloodMarkerForm() {
 
     var CSRF_TOKEN = getCookie('csrftoken');
 
+
+
+    //function for submitting a new test
+
     function submitTest(e) {
         e.preventDefault();
 
-        var testNum;
-        var test;
+
+        let test;
         client.defaults.headers.common['x-csrftoken'] = CSRF_TOKEN;
 
-        client.get("/api/test_num").
-        then(function(response, testNum) {
-            
-            testNum = response.data.test_num
-
-            client.post("/api/tests", {num: testNum})
+//upload a new test with the retrieved test number
+            client.post("/api/tests")
             .then(function(response) {
-                
-                test = response.data;
 
+                test = response.data;
+//iterate through blood markers and upload them
                 for(let i = 0; i < markers.length; i++) {
                     if(markers[i] !== -1){
                         client.post(
@@ -86,7 +86,7 @@ function BloodMarkerForm() {
                     }
                 }
             });
-        });
+
 
       }
 

@@ -1,3 +1,4 @@
+from django.db.models import Max
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from rest_framework import permissions, status
@@ -6,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.authentication import SessionAuthentication
 from .models import *
 from .serializers import *
+
 
 class BloodTestView(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -19,8 +21,16 @@ class BloodTestView(APIView):
         return Response(detail)
 
     def post(self, request):
-        
-        serializer = TestSerializer(data= {"user": request.user.pk} | request.data)
+        selected_user = request.user
+
+        # count the number of tests associated with a specific user
+        num_tests = BloodTest.objects.filter(user=selected_user).count()
+
+        # Make the next test number that value
+        test_num = num_tests + 1
+
+        data = {'test_num': test_num + 1}
+        serializer = TestSerializer(data={"user": request.user.pk} | data)
         if serializer.is_valid(raise_exception=True):
             blood_test = serializer.save()
             return Response(blood_test.pk)
@@ -69,7 +79,7 @@ class TestAndMarkerView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-    
+
 
 class TestNum(APIView):
     permission_classes = (permissions.IsAuthenticated,)

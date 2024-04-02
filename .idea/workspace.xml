@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/PulseRx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/PulseRx/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/blood_tests/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/pages/entry.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/pages/entry.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
