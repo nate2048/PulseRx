@@ -81,26 +81,6 @@ class TestAndMarkerView(APIView):
             return Response(serializer.data)
 
 
-class TestNum(APIView):
-    permission_classes = (permissions.IsAuthenticated,)
-    authentication_classes = (SessionAuthentication,)
-
-    serializer_class = MarkerSerializer
-
-    def get(self, request):
-        selected_user = request.user
-
-        test_num = 1
-        blood_tests = BloodTest.objects.filter(user=selected_user)
-
-        for test in blood_tests:
-            if (test_num < test.num):
-                test_num = test.num
-
-        data = {'test_num': test_num + 1}
-
-        return Response(data)
-
 # def post(self, request):
 
 #  serializer = TestSerializer(data=BloodTest.objects.filter(user=request.user))
