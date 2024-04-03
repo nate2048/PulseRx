@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/pages/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/pages/entry.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/pages/entry.js" afterDir="false" />
-    </list>
+    <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +93,7 @@
       <workItem from="1710891766444" duration="276000" />
       <workItem from="1711063748765" duration="7879000" />
       <workItem from="1711841919052" duration="6222000" />
-      <workItem from="1712174720125" duration="5573000" />
+      <workItem from="1712174720125" duration="5794000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
