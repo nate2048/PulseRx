@@ -8,6 +8,8 @@ import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import BloodMarkerForm from "./pages/entry";
+import Dashboard from "./pages/Dashboard";
+import Layout from "./Layout";
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -72,40 +74,18 @@ function Login() {
   }
 
   function submitLogout(e) {
-    e.preventDefault();
+
+    if(e) {
+      e.preventDefault();
+    }
     client.post("/api/logout", { withCredentials: true }).then(function (res) {
       setCurrentUser(false);
     });
   }
 
   if (currentUser) {
-    return (
-      <Router>
-        <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="/">Pulse Rx</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">Health</Nav.Link>
-              <Nav.Link as={Link} to="/insights">Insights</Nav.Link>
-              <Nav.Link as={Link} to="/chat">Chat</Nav.Link>
-              <Nav.Link as={Link} to="/newData">New Data</Nav.Link>
-            </Nav>
-            <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text>
-                <form onSubmit={e => submitLogout(e)}>
-                  <Button type="submit" variant="light">Log out</Button>
-                </form>
-              </Navbar.Text>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-        <Routes>
-           <Route path="/" element={<Home/>} />
-          <Route path="/newData" element={<BloodMarkerForm/>} />
-        </Routes>
-      </Router>
-    );
+    //so here I am passing the logout function as a prop to the dashboard layout
+   return <Layout logout={submitLogout} />;
   }
 
   return (

@@ -54,8 +54,7 @@ function BloodMarkerForm() {
         return cookieValue;
     }
 
-    var CSRF_TOKEN = getCookie('csrftoken');
-
+    const CSRF_TOKEN = getCookie('csrftoken');
 
 
     //function for submitting a new test

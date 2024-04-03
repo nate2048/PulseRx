@@ -1,38 +1,176 @@
-import React from 'react';
+import React from "react";
+import {
+  Card,
+  Typography,
+  List,
+  ListItem,
+  ListItemPrefix,
+  ListItemSuffix,
+  Chip,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+  Alert,
+} from "@material-tailwind/react";
+import {
+  PresentationChartBarIcon,
+  UserCircleIcon,
+  Cog6ToothIcon,
+  InboxIcon,
+  PowerIcon,
+  ArrowUpOnSquareStackIcon,
+  DocumentArrowUpIcon,
+  PencilSquareIcon,
+  ChartBarIcon,
+  PaperAirplaneIcon
 
-const Dashboard = () => {
-  return (
-    <div className="flex h-screen">
+} from "@heroicons/react/24/solid";
+import {
+  ChevronRightIcon,
+  ChevronDownIcon,
+  CubeTransparentIcon,
+} from "@heroicons/react/24/outline";
 
-      <div className="bg-gray-900 w-64 shadow-md">
-        <div className="p-6">
-          <h1 className="text-white text-xl font-bold">Dashboard</h1>
-          <ul className="mt-6">
-            <li className="mb-4">
-              <a href="#" className="text-gray-300 hover:text-white">Home</a>
-            </li>
-            <li className="mb-4">
-              <a href="#" className="text-gray-300 hover:text-white">Analytics</a>
-            </li>
-            <li className="mb-4">
-              <a href="#" className="text-gray-300 hover:text-white">Settings</a>
-            </li>
-            <li className="mb-4">
-              <a href="#" className="text-gray-300 hover:text-white">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+function Dashboard({ logout, handleComponentClick }) {
+  const [open, setOpen] = React.useState(0);
+  const [openAlert, setOpenAlert] = React.useState(true);
 
-      {/* Main Content Area */}
-      <div className="flex-grow bg-gray-100 p-6">
-        <h1 className="text-3xl text-gray-900 font-bold mb-4">Welcome to Your Dashboard</h1>
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      </div>
-    </div>
-  );
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
+  const handleInboxClick = (componentName) => {
+  // Call handleComponentClick to update the selected component
+  handleComponentClick(componentName);
 };
+
+  return (
+    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+      <div className="mb-2 flex items-center gap-4 p-4">
+        <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="h-8 w-8" />
+        <Typography variant="h5" color="blue-gray">
+          PulseRx
+        </Typography>
+      </div>
+      <List>
+        <Accordion
+          open={open === 1}
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
+            />
+          }
+        >
+          <ListItem className="p-0" selected={open === 1}>
+            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
+              <ListItemPrefix>
+                <PresentationChartBarIcon className="h-5 w-5 mr-2 mt-0" />
+              </ListItemPrefix>
+              <Typography color="blue-gray" className="mr-auto font-normal mt-0">
+                Analytics
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+          <AccordionBody className="py-1">
+            <List className="p-0">
+              <ListItem onClick={() => handleInboxClick("Home")}>
+                <ListItemPrefix>
+                  <ChartBarIcon strokeWidth={3} className="h-3 w-5 mr-2" />
+                </ListItemPrefix>
+                Charts
+              </ListItem>
+              <ListItem>
+                <ListItemPrefix>
+                  <PaperAirplaneIcon strokeWidth={3} className="h-3 w-5 mr-2" />
+                </ListItemPrefix>
+                Insights
+              </ListItem>
+            </List>
+          </AccordionBody>
+        </Accordion>
+        <Accordion
+          open={open === 2}
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform ${open === 2 ? "rotate-180" : ""}`}
+            />
+          }
+        >
+          <ListItem className="p-0" selected={open === 2}>
+            <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
+              <ListItemPrefix>
+                <ArrowUpOnSquareStackIcon className="h-5 w-5 mr-2" />
+              </ListItemPrefix>
+              <Typography color="blue-gray" className="mr-auto font-normal">
+                Reporting
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+          <AccordionBody className="py-1">
+            <List className="p-0">
+              <ListItem onClick={() => handleInboxClick("Entry")}>
+                <ListItemPrefix>
+                  <PencilSquareIcon strokeWidth={3} className="h-3 w-5 mr-2" />
+                </ListItemPrefix>
+                Manual Reporting
+              </ListItem>
+              <ListItem>
+                <ListItemPrefix>
+                  <DocumentArrowUpIcon strokeWidth={3} className="h-3 w-5 mr-2" />
+                </ListItemPrefix>
+                Document Upload
+              </ListItem>
+            </List>
+          </AccordionBody>
+        </Accordion>
+        <hr className="my-2 border-blue-gray-50" />
+        <ListItem>
+          <ListItemPrefix>
+            <UserCircleIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Profile
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Settings
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <PowerIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          <button onClick={logout}>Log Out</button>
+        </ListItem>
+      </List>
+      <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
+        <CubeTransparentIcon className="mb-4 h-12 w-12" />
+        <Typography variant="h6" className="mb-1">
+          Upgrade to PRO
+        </Typography>
+        <Typography variant="small" className="font-normal opacity-80">
+          Upgrade to Material Tailwind PRO and get even more components, plugins, advanced features
+          and premium.
+        </Typography>
+        <div className="mt-4 flex gap-3">
+          <Typography
+            as="a"
+            href="#"
+            variant="small"
+            className="font-medium opacity-80"
+            onClick={() => setOpenAlert(false)}
+          >
+            Dismiss
+          </Typography>
+          <Typography as="a" href="#" variant="small" className="font-medium">
+            Upgrade Now
+          </Typography>
+        </div>
+      </Alert>
+    </Card>
+  );
+}
 
 export default Dashboard;

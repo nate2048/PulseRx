@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.flex {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px; /* Fixed width for the sidebar */
+  height: 100vh; /* Set sidebar height to fill the viewport */
+  overflow-y: hidden; /* Prevent scrolling in the sidebar */
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Position at the top of the viewport */
+  left: 0; /* Position at the left of the viewport */
+}
+
+.content {
+  flex: 1; /* Flexible content area */
+  margin-left: 250px; /* Ensure content doesn't overlap with the sidebar */
+  padding: 20px; /* Add padding to the content area */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
