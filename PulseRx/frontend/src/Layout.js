@@ -14,6 +14,7 @@ function Layout({ logout }) {
     <div className="flex">
       <div className="sidebar">
         {/* Fixed width sidebar - see .css file */}
+          {/* The prop is again passed in here so dashboard has access to the logout function */}
         <Dashboard logout={logout} handleComponentClick={handleComponentClick} />
       </div>
       <div className="content">
