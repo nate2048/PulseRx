@@ -5,8 +5,6 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
-  Chip,
   Accordion,
   AccordionHeader,
   AccordionBody,
@@ -16,7 +14,6 @@ import {
   PresentationChartBarIcon,
   UserCircleIcon,
   Cog6ToothIcon,
-  InboxIcon,
   PowerIcon,
   ArrowUpOnSquareStackIcon,
   DocumentArrowUpIcon,
@@ -26,7 +23,6 @@ import {
 
 } from "@heroicons/react/24/solid";
 import {
-  ChevronRightIcon,
   ChevronDownIcon,
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";

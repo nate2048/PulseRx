@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/home";
 import Entry from "./pages/entry";
+import InputForm from "./InputForm";
 
 function Layout({ logout }) {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -20,7 +21,7 @@ function Layout({ logout }) {
       <div className="content">
         {/* this is so the component area can be scrollable - see .css file */}
         {selectedComponent === "Home" && <Home />}
-          {selectedComponent === "Entry" && <Entry />}
+          {selectedComponent === "Entry" && <InputForm />}
       </div>
     </div>
   );
