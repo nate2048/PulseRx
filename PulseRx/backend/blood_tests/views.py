@@ -16,7 +16,7 @@ class BloodTestView(APIView):
     serializer_class = TestSerializer
 
     def get(self, request):
-        detail = [{"test_date": detail.test_date, "num": detail.num}
+        detail = [{"test_date": detail.test_date, "num": detail.num, "type": detail.type, "source": detail.source}
                   for detail in BloodTest.objects.filter(user=request.user)]
         return Response(detail)
 

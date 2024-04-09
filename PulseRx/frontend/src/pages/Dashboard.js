@@ -35,7 +35,7 @@ function Dashboard({ logout, handleComponentClick }) {
     setOpen(open === value ? 0 : value);
   };
 
-  const handleInboxClick = (componentName) => {
+  const handleClick = (componentName) => {
   // Call handleComponentClick to update the selected component
   handleComponentClick(componentName);
 };
@@ -70,7 +70,7 @@ function Dashboard({ logout, handleComponentClick }) {
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
-              <ListItem onClick={() => handleInboxClick("Home")}>
+              <ListItem onClick={() => handleClick("Home")}>
                 <ListItemPrefix>
                   <ChartBarIcon strokeWidth={3} className="h-3 w-5 mr-2" />
                 </ListItemPrefix>
@@ -106,13 +106,13 @@ function Dashboard({ logout, handleComponentClick }) {
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
-              <ListItem onClick={() => handleInboxClick("Entry")}>
+              <ListItem onClick={() => handleClick("Entry")}>
                 <ListItemPrefix>
                   <PencilSquareIcon strokeWidth={3} className="h-3 w-5 mr-2" />
                 </ListItemPrefix>
                 Manual Reporting
               </ListItem>
-              <ListItem>
+               <ListItem onClick={() => handleClick("Document")}>
                 <ListItemPrefix>
                   <DocumentArrowUpIcon strokeWidth={3} className="h-3 w-5 mr-2" />
                 </ListItemPrefix>
@@ -141,30 +141,7 @@ function Dashboard({ logout, handleComponentClick }) {
           <button onClick={logout}>Log Out</button>
         </ListItem>
       </List>
-      <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
-        <CubeTransparentIcon className="mb-4 h-12 w-12" />
-        <Typography variant="h6" className="mb-1">
-          Upgrade to PRO
-        </Typography>
-        <Typography variant="small" className="font-normal opacity-80">
-          Upgrade to Material Tailwind PRO and get even more components, plugins, advanced features
-          and premium.
-        </Typography>
-        <div className="mt-4 flex gap-3">
-          <Typography
-            as="a"
-            href="#"
-            variant="small"
-            className="font-medium opacity-80"
-            onClick={() => setOpenAlert(false)}
-          >
-            Dismiss
-          </Typography>
-          <Typography as="a" href="#" variant="small" className="font-medium">
-            Upgrade Now
-          </Typography>
-        </div>
-      </Alert>
+
     </Card>
   );
 }
