@@ -7,7 +7,7 @@ class TestSerializer(serializers.ModelSerializer):
     
     class Meta: 
         model = BloodTest
-        fields = ['user', 'test_date', 'num',]
+        fields = ['user', 'test_date', "type", "source"]
 
 
 class MarkerSerializer(serializers.ModelSerializer): 
