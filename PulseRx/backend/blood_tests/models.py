@@ -18,3 +18,11 @@ class BloodMarker(models.Model):
 
     def __str__(self):
         return f"{self.name} for Blood Test on {self.blood_test.test_date}"
+    
+class gptRecommendation(models.Model):
+    blood_test = models.ForeignKey(BloodTest, on_delete=models.CASCADE)
+    prompt = models.TextField()
+    response = models.TextField()
+
+    def __str__(self):
+        return f"ChatGPT response for Blood Test on {self.blood_test.test_date}"

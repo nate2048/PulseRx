@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Entry from "./pages/entry";
 import InputForm from "./InputForm";
 import FindMarker from "./FindMarker";
+import Insights from "./pages/insights";
 
 function Layout({ logout }) {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -23,8 +24,9 @@ function Layout({ logout }) {
       <div className="content">
 
         {selectedComponent === "Home" && <Home />}
-          {selectedComponent === "Entry" && <InputForm />}
-          {selectedComponent === "Document" && <FindMarker />}
+        {selectedComponent === "Entry" && <InputForm />}
+        {selectedComponent === "Insights" && <Insights />}
+        {selectedComponent === "Document" && <FindMarker />}
       </div>
     </div>
   );

@@ -18,3 +18,8 @@ class MarkerSerializer(serializers.ModelSerializer):
 
 class allMarkerSerialzier(serializers.Serializer):
     blood_markers = MarkerSerializer(many=True)
+
+class gptRecommendationSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = gptRecommendation 
+        fields = ['blood_test', 'prompt', 'response']
