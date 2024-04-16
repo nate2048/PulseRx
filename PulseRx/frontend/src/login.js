@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import BloodMarkerForm from "./pages/entry";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./Dashboard";
 import Layout from "./Layout";
 
 axios.defaults.xsrfCookieName = 'csrftoken';

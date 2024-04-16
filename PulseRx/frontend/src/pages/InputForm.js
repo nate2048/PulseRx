@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Accordion, Card, Typography } from "@material-tailwind/react";
-import FindMarker from "./FindMarker";
+import FindMarker from "../Forms/FindMarker";
 import axios from "axios";
-import Modal from "./TestModal";
+import Modal from "../TestModal";
 
 const TABLE_HEAD = ["Type", "Source", "Test Date"];
 

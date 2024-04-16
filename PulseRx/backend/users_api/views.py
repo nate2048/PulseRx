@@ -16,6 +16,7 @@ class UserRegister(APIView):
 			user = serializer.create(clean_data)
 			if user:
 				return Response(serializer.data, status=status.HTTP_201_CREATED)
+		print("this issue")
 		return Response(status=status.HTTP_400_BAD_REQUEST)
 
 

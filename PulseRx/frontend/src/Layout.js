@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./Dashboard";
 import Home from "./pages/home";
 import Entry from "./pages/entry";
-import InputForm from "./InputForm";
-import FindMarker from "./FindMarker";
+import InputForm from "./pages/InputForm";
+import FindMarker from "./Forms/FindMarker";
+import Example from "./Forms/DatePicker";
 
 function Layout({ logout }) {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -24,7 +25,7 @@ function Layout({ logout }) {
 
         {selectedComponent === "Home" && <Home />}
           {selectedComponent === "Entry" && <InputForm />}
-          {selectedComponent === "Document" && <FindMarker />}
+          {selectedComponent === "Document" && <Example />}
       </div>
     </div>
   );
