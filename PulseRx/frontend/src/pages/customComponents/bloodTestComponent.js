@@ -21,11 +21,7 @@ function BloodTestComponent() {
 
         const response = await client.get("/api/markers",
             {'withCredentials': true });
-        console.log(response);
         setTest(response.data);
-        console.log(tests);
-        console.log(response.data);
-        console.log(tests.length)
     }
 
     if(tests === []) {return}

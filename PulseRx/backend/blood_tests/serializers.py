@@ -22,4 +22,4 @@ class allMarkerSerialzier(serializers.Serializer):
 class gptRecommendationSerializer(serializers.ModelSerializer):
     class Meta: 
         model = gptRecommendation 
-        fields = ['blood_test', 'prompt', 'response']
+        fields = ['blood_test', 'marker', 'high_low', 'prompt', 'response']

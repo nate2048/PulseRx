@@ -106,7 +106,7 @@ export function InputForm() {
             </tr>
           </thead>
           <tbody>
-            {tableData.map(({ pk, type, source, date }, index) => {
+            {tableData.toReversed().map(({ pk, type, source, date }, index) => {
               const isLast = index === tableData.length - 1;
               const classes = isLast
                 ? "p-4"

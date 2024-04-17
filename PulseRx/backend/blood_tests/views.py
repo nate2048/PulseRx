@@ -137,18 +137,32 @@ class gptResponseView(APIView):
 
     def get(self, request):
 
-        data = []
+        data = {}
 
         for test in BloodTest.objects.filter(user=request.user):
 
             try:
-                recomendation = gptRecommendation.objects.get(blood_test=test.pk)
-                response = recomendation.response
+                recomendation = gptRecommendation.objects.filter(blood_test=test.pk)
+
+                # Iterate through blood markers and populate the data dictionary
+                for rec in recomendation:
+                    
+                    info = {
+                        "marker" : rec.marker,
+                        "high_low" : rec.high_low,
+                        "response": rec.response,
+                    }
+
+                    if test.pk in data:
+                        data[test.pk].append(info)
+
+
+                    else:
+                        data[test.pk] = [info]
 
             except Exception as e:
-                response = "No ChatGPT response"
+                data[test.pk] = [{"marker" : "N/A", "high_low" : "N/A", "response": "No ChatGPT response. Error: " + str(e)}]
 
-            data.append({"tests_pk": test.pk, "response": response})
 
         return Response(data)
     
@@ -189,19 +203,38 @@ class gptNewResponseView(APIView):
         blood_test = BloodTest.objects.get(pk=testId)
 
         oor = self.getBadMarkers(blood_markers)
-        prompt = self.createPrompt(user, oor, blood_test.type)
-        recommendation = self.getRecommendation(prompt)
 
-        json_response = {
-            "blood_test": testId,
-            "prompt": prompt,
-            "response": recommendation
-        }
+        responses = []
 
-        serializer = gptRecommendationSerializer(data=json_response)
+        if not oor:
+            prompt = self.inRangePrompt(user)
+            recommendation = self.getRecommendation(prompt)
+            json_response = {
+                "blood_test": testId,
+                "marker": "N/A",
+                "high_low": "N/A",
+                "prompt": prompt,
+                "response": recommendation,
+            }
+            responses.append(json_response)
+            
+        else:
+            for marker, quantity in oor.items():
+                prompt = self.createPrompt(user, marker, quantity, blood_test.type)
+                recommendation = self.getRecommendation(prompt)
+                json_response = {
+                    "blood_test": testId,
+                    "marker": marker,
+                    "high_low": quantity,
+                    "prompt": prompt,
+                    "response": recommendation,
+                }
+                responses.append(json_response)
+
+        serializer = gptRecommendationSerializer(data=responses, many=True)
         if serializer.is_valid(raise_exception=True):
-            blood_test = serializer.save()
-            return Response(blood_test.pk)
+            serializer.save()
+            return Response(serializer.data)
     
 
     def getBadMarkers(self, blood_markers):
@@ -210,10 +243,10 @@ class gptNewResponseView(APIView):
 
         for marker in blood_markers:
 
-            if marker.name in self.normal_ranges: 
+            if marker.name.lower() in self.normal_ranges: 
 
-                low = self.normal_ranges[marker.name][0]
-                high = self.normal_ranges[marker.name][1]
+                low = self.normal_ranges[marker.name.lower()][0]
+                high = self.normal_ranges[marker.name.lower()][1]
 
                 if marker.value < low:
                     oor[marker.name] = "low"
@@ -226,18 +259,20 @@ class gptNewResponseView(APIView):
 
         return oor
     
-    def createPrompt(self, user, oor, type):
-        first = True
+    def createPrompt(self, user, marker, quantity, type):
 
-        prompt = f"The patient is a {user.age} year old {user.sex}. Their {type} results shows that they have "
-        for marker, quantity in oor.items():
-            if first: 
-                prompt += f"{quantity} {marker}"
-                first = False
-            else:
-                prompt += f", {quantity} {marker}"
-        prompt += f"\nBased on the patient's demographics and {type} results, what dietary and lifestyle changes would you suggest?"
+        prompt = f"I am a {user.age} year old {user.sex}. My {type} test results shows that I have {quantity} {marker}."
+        prompt += f"\nBased on my demographics and {type} test results, what dietary and lifestyle changes would you suggest?"
+
         return prompt
+
+    def inRangePrompt(self, user):
+
+        prompt = f"I am a {user.age} year old {user.sex}. "
+        prompt += "I am looking to improve my health so what dietary and lifestyle changes would you suggest?"
+
+        return prompt
+
     
     def getRecommendation(self, prompt):
 
@@ -259,3 +294,27 @@ class gptNewResponseView(APIView):
             
         except Exception as e:
             return Response(f"Error calling OpenAI API: {e}")
+
+
+    # def createPrompt(self, user, oor, type):
+
+    #     i = 0
+    #     prompt = f"I am a {user.age} year old {user.sex}. "
+        
+    #     if not oor:
+    #         prompt += "I am looking to improve my health so what dietary and lifestyle changes would you suggest?"
+
+    #     else:
+    #         prompt += f"My {type} test results shows that they have " 
+
+    #         for marker, quantity in oor.items():
+    #             if i == 0: 
+    #                 prompt += f"{quantity} {marker}"
+    #             elif i-1 == oor.length() and oor.length() != 1:
+    #                 prompt += f", and {quantity} {marker}."
+    #             else:
+    #                 prompt += f", {quantity} {marker}"
+
+    #         prompt += f"\nBased on my demographics and {type} test results, what dietary and lifestyle changes would you suggest?"
+
+    #     return prompt

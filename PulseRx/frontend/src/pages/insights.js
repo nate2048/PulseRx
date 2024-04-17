@@ -35,13 +35,9 @@ function Insights() {
   async function loadResponses() {
     try {
         const response = await axios.get("http://127.0.0.1:8000/api/gpt");
+        setResponses(response.data)
         console.log(response.data)
-        const formattedData = response.data.map(({ tests_pk, response}) => ({
-            pk: tests_pk,
-            response: markdown.render(response),
-        }));
-        console.log(formattedData)
-        setResponses(formattedData)
+        console.log(response.data["21"])
       } catch (error) {
         console.error("Error fetching response data:", error);
       }
@@ -66,28 +62,26 @@ function Insights() {
     );
   }
 
+  if(responses === []) {return}
 
   return (
     <div>
       <Card className="h-full w-full overflow-scroll">
-        {tests.map(({ pk, type, source, date }, index) => {
-            const isLast = index === tests.length - 1;
-            const classes = isLast
-                ? "p-4"
-                : "p-4 border-b border-blue-gray-50";
-            var response = responses.map((test) => {
-                if(test.pk === pk){
-                    return test.response
-                }
-              });
-
+        {tests.toReversed().map(({ pk, type, source, date }, index) => {
+            if(!(pk.toString() in responses)) {return}
+            var cur_test = responses[pk.toString()]
             return (
             <Accordion open={openAccordion === index} icon={<Icon id={index} open={openAccordion} />}>
                 <AccordionHeader onClick={() => toggleAccordion(index)}>
                     Response for {type} test at {source} on {date}
                 </AccordionHeader>
                 <Accordion.Body>
-                    <div dangerouslySetInnerHTML={{__html: response}}></div>
+                    {cur_test.map((test) => (
+                        <>
+                            <h2>Suggestions regarding {test.high_low} {test.marker}</h2>
+                            <div dangerouslySetInnerHTML={{__html: markdown.render(test.response)}}></div>
+                        </>
+                    ))}
                 </Accordion.Body>
             </Accordion>
             );
