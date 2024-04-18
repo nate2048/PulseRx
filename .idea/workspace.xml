@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/PulseRx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/PulseRx/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/migrations/0002_bloodtest_source_bloodtest_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/dataContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/blood_tests/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/blood_tests/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/blood_tests/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/blood_tests/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/blood_tests/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/FindMarker.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/FindMarker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/MarkerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/MarkerForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/ModalTestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/ModalTestForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/TestModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/TestModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/pages/InputForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/pages/InputForm.js" afterDir="false" />
-    </list>
+    <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
