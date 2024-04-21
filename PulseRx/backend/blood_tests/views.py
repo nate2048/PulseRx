@@ -22,7 +22,7 @@ class BloodTestView(APIView):
 
     def get(self, request):
         detail = [{"pk": detail.pk, "test_date": detail.test_date, "type": detail.type, "source": detail.source}
-                  for detail in BloodTest.objects.filter(user=request.user)]
+                  for detail in BloodTest.objects.filter(user=request.user.pk)]
         return Response(detail)
 
     def post(self, request):

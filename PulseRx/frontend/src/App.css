@@ -34,3 +34,33 @@ span.input-group-addon {
     align-items: center;
     margin-top: 5%;
 }
+
+.top {
+  margin: 0; 
+  padding: 0;
+}
+
+.tableContainer{
+  max-height: 500px;
+  padding: 0;
+  overflow: scroll;
+}
+
+.vspace1em {
+  clear: both;
+  height: 1em;
+}
+
+.vspace2em {
+  clear: both;
+  height: 2em;
+}
+
+.shiftRight2 {
+  margin-left: 2%;
+}
+
+.shiftRight3 {
+  margin-left: 3%;
+  margin-right: 3%;
+}

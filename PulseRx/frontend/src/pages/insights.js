@@ -65,6 +65,7 @@ function Insights() {
   if(responses === []) {return}
   return (
     <div>
+    <div class="vspace2em"></div>
       <Card className="h-full w-full overflow-scroll">
         {tests.toReversed().map(({ pk, type, source, date }, index) => {
             if(!(pk.toString() in responses)) {return}
@@ -72,14 +73,16 @@ function Insights() {
             return (
             <Accordion open={openAccordion === index} icon={<Icon id={index} open={openAccordion} />}>
                 <AccordionHeader onClick={() => toggleAccordion(index)}>
+                  <div className="shiftRight2">
                     Response for {type} test at {source} on {date}
+                  </div>
                 </AccordionHeader>
                 <Accordion.Body>
                     {cur_test.map((test) => (
-                        <>
+                        <div className="shiftRight3">
                             <h2>Suggestions regarding {test.high_low} {test.marker}</h2>
                             <div dangerouslySetInnerHTML={{__html: markdown.render(test.response)}}></div>
-                        </>
+                        </div>
                     ))}
                 </Accordion.Body>
             </Accordion>
