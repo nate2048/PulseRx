@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { MaterialTailwindTheme } from '@material-tailwind/react';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -35,26 +36,14 @@ function UserComponent() {
 
     if(currentUser){
         return (
-            <div className="main-section">
-                <h1>Current User</h1>
-                <div>
-                    email: {user.user.email} 
-                </div>
-                <div>
-                    username: {user.user.username} 
-                </div>
+            <div class="text-right text-black/60">
+                <h4 class="text-current/50"> Hello, {user.user.username}!</h4>
             </div>
         );
     }
     return (
         <div className="main-section">
-            <h1>currentUser</h1>
-            <div>
-                email: undefined
-            </div>
-            <div>
-                username: undefined
-            </div>
+            <h4>Hello, user!</h4>
         </div>
     );
 }

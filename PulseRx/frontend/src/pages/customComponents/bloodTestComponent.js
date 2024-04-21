@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Graphs from './graphs.js';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -24,11 +25,20 @@ function BloodTestComponent() {
         setTest(response.data);
     }
 
+    //???
     if(tests === []) {return}
 
     return (
         <div>
-            <h2>Blood Marker Tests</h2>
+            <h3>Blood Marker Test Charts:</h3>
+            <Graphs />
+        </div>
+    );
+}
+
+export default BloodTestComponent;
+
+/*
             {
                 <ul>
                     {Object.entries(tests).map(([markerName, markerInfo]) => (
@@ -46,8 +56,6 @@ function BloodTestComponent() {
                     ))}
                 </ul>
             }
-        </div>
-    );
-}
-
-export default BloodTestComponent;
+*/
+//deprecated, just shows random info, need to input into charts
+//leaving for reference 
