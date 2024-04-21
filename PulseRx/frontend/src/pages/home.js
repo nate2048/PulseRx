@@ -8,7 +8,7 @@ const Home = () => {
             <div>
                 <UserComponent />
             </div>
-            <div className="center">
+            <div>
                 <BloodTestComponent />
             </div>
         </div>

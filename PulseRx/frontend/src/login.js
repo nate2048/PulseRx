@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from "./Layout";
+import logo from './pulserx_logo.png';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -82,6 +83,9 @@ function Login() {
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="container center">
+        <img src={logo} width={250} height={250}/>
+      </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">{registrationToggle ? 'Register an' : 'Sign in to your'} account </h2>
@@ -136,7 +140,14 @@ function Login() {
 
                 </div>
                 <div className="mt-2">
-                  <input id="sex" name="sex" type="text" autoComplete="sex" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={sex} onChange={e => setSex(e.target.value)} />
+                  <select id="sex" name="sex" type="text" autoComplete="sex" required 
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={sex} onChange={e => 
+                  setSex(e.target.value)}>
+                    <option>Select Sex</option>
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
+                    <option value="O">Other</option>
+                  </select>
                 </div>
               </div>
 
@@ -167,6 +178,7 @@ function Login() {
         {!registrationToggle && (
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?
+            <span> </span>
             <button className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" onClick={updateFormBtn}> Register now</button>
           </p>
         )}
