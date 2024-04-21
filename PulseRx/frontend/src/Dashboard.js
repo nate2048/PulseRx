@@ -76,7 +76,7 @@ function Dashboard({ logout, handleComponentClick }) {
                 </ListItemPrefix>
                 Charts
               </ListItem>
-              <ListItem>
+              <ListItem onClick={() => handleClick("Insights")}>
                 <ListItemPrefix>
                   <PaperAirplaneIcon strokeWidth={3} className="h-3 w-5 mr-2" />
                 </ListItemPrefix>
