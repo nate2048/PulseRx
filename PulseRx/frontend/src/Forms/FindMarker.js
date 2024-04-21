@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {Typography } from "@material-tailwind/react";
+import Table from 'react-bootstrap/Table';
+import './FindMarker.css';
 
 function SearchableInputForm() {
     const [bloodMarker, setBloodMarker] = useState('');
@@ -10,11 +13,24 @@ function SearchableInputForm() {
 
     // List of available blood markers
     const availableBloodMarkers = [
-        'Hemoglobin',
-        'White Blood Cell Count',
-        'Platelet Count',
-        'Vitamin D',
-        'Calcium',
+        'glucose',
+        'cholesterol_total',
+        'cholesterol_hdl', 
+        'cholesterol_ldl',
+        'triglycerides',
+        'hemoglobin',  
+        'hematocrit',  
+        'mcv',  
+        'mch',  
+        'mchc', 
+        'rdw',  
+        'platelets',  
+        'wbc',  
+        'neutrophils',  
+        'lymphocytes',  
+        'monocytes',  
+        'eosinophils',  
+        'basophils', 
     ];
 
     // Handle marker selection
@@ -81,9 +97,9 @@ function SearchableInputForm() {
     }, []);
 
     return (
-        <div className="grid grid-cols-2 gap-6 " ref={dropdownRef}>
+        <div className="grid grid-cols-2 gap-8 " ref={dropdownRef}>
             {/* Input form container */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col">
 
                 {/* Blood marker input and dropdown */}
                 <div className="relative w-full min-w-[230px] h-11">
@@ -152,22 +168,90 @@ function SearchableInputForm() {
             </div>
 
             {/* Display added markers and values */}
+{/* 
+            <div className="flex flex-col w-400 mt-7 ml-8">  
+                {markersList.map((markerEntry, index) => (
+                    <div key={index} className="flex justify-between items-center border-b pb-2 mb-2">
+                        <span className="text-sm text-blue-gray-900">
+                            {markerEntry.marker}: {markerEntry.value}
+                        </span>
+                        <button
+                            onClick={() => handleDeleteMarker(index)}
+                            className="text-red-500 text-sm"
+                        >
+                            Delete
+                        </button>
+                    </div>
+                ))}
+            </div>
+             */}
+            <div className="markerContainer rounded-md overflow-x-hidden">
+                <Table className="text-left" size="sm">
+                <thead>
+                    <tr>
+                        <th
+                        className="border-b border-blue-gray-100 bg-blue-gray-50 p-0"
+                        >
+                        <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-normal"
+                        >
+                            Name
+                        </Typography>
+                        </th>
+                        <th
+                        className="border-b border-blue-gray-100 bg-blue-gray-50 p-0"
+                        >
+                        <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                        >
+                            Value
+                        </Typography></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {markersList.map((markerEntry, index) => {
+                    const isLast = index === markersList.length - 1;
+                    const classes = isLast ? "p-4 text-left" : "p-4 border-b border-blue-gray-100 text-left";
 
-<div className="flex flex-col w-400 mt-7 ml-8">  {/* Add ml-8 to move further right */}
-    {markersList.map((markerEntry, index) => (
-        <div key={index} className="flex justify-between items-center border-b pb-2 mb-2">
-            <span className="text-sm text-blue-gray-900">
-                {markerEntry.marker}: {markerEntry.value}
-            </span>
-            <button
-                onClick={() => handleDeleteMarker(index)}
-                className="text-red-500 text-sm"
-            >
-                Delete
-            </button>
-        </div>
-    ))}
-</div>
+                    return(
+                    <tr>
+                        <td className={classes} colSpan="1">
+                        <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-normal"
+                        >
+                            {markerEntry.marker}
+                        </Typography>
+                        </td>
+                        <td className={classes} colSpan="1">
+                        <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-normal"
+                        >
+                            {markerEntry.value}
+                        </Typography>
+                        </td>
+                        <td className={classes} colSpan="1">
+                            <button
+                                onClick={() => handleDeleteMarker(index)}
+                                className="text-red-500 text-sm"
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    );
+                })}
+                </tbody>
+                </Table>
+            </div>
 
         </div>
     );

@@ -1,14 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/home";
-import BloodMarkerForm from "./pages/entry";
-import Dashboard from "./Dashboard";
 import Layout from "./Layout";
 
 axios.defaults.xsrfCookieName = 'csrftoken';

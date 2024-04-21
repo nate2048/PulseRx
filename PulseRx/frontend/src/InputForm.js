@@ -15,7 +15,7 @@ const OOR_DICT = {
   'cholesterol_hdl': [40, 60],  
   'cholesterol_ldl': [0, 100],  
   'triglycerides': [0, 150], 
-  'Hemoglobin': [13.5, 17.5],  
+  'hemoglobin': [13.5, 17.5],  
   'hematocrit': [38.3, 48.6],  
   'mcv': [80, 100],  
   'mch': [27, 33],  
@@ -27,9 +27,7 @@ const OOR_DICT = {
   'lymphocytes': [20, 40],  
   'monocytes': [2, 8],  
   'eosinophils': [1, 4],  
-  'basophils': [0.5, 1],
-  'Calcium': [0.5, 1], 
-  'Sodium': [0.5, 1],   
+  'basophils': [0.5, 1], 
 }
 
 
@@ -186,7 +184,9 @@ export function InputForm() {
                           color="blue-gray"
                           className="font-bold"
                         >
-                          Expand
+                          {openAccordion === index
+                          ? "Collapse"
+                          : "Expand"}
                         </Typography>
                       </button>
                     </td>
