@@ -265,7 +265,9 @@ export function InputForm() {
                                           color="blue-gray"
                                           className="font-normal"
                                         >
-                                          {OOR_DICT[marker.name][0]}
+                                          {OOR_DICT.hasOwnProperty(marker.name)
+                                          ?OOR_DICT[marker.name][0]
+                                          :"NA"}
                                         </Typography>
                                       </td>
                                       <td className={classes} colSpan="1">
@@ -274,7 +276,9 @@ export function InputForm() {
                                           color="blue-gray"
                                           className="font-normal"
                                         >
-                                          {OOR_DICT[marker.name][1]}
+                                          {OOR_DICT.hasOwnProperty(marker.name)
+                                          ?OOR_DICT[marker.name][1]
+                                          :"NA"}
                                         </Typography>
                                       </td>
                                       <td className={classes} colSpan="1">
@@ -283,18 +287,22 @@ export function InputForm() {
                                             size="sm"
                                             variant="ghost"
                                             value={
-                                              marker.value < OOR_DICT[marker.name][0]
+                                              OOR_DICT.hasOwnProperty(marker.name) && marker.value < OOR_DICT[marker.name][0]
                                                 ? "low"
-                                                : marker.value > OOR_DICT[marker.name][1]
+                                                : OOR_DICT.hasOwnProperty(marker.name) && marker.value > OOR_DICT[marker.name][1]
                                                 ? "high"
-                                                : "green"
+                                                : OOR_DICT.hasOwnProperty(marker.name)
+                                                ? "good"
+                                                : "NA"
                                             }
                                             color={
-                                              marker.value < OOR_DICT[marker.name][0]
+                                              OOR_DICT.hasOwnProperty(marker.name) && marker.value < OOR_DICT[marker.name][0]
                                                 ? "blue"
-                                                : marker.value > OOR_DICT[marker.name][1]
+                                                : OOR_DICT.hasOwnProperty(marker.name) && marker.value > OOR_DICT[marker.name][1]
                                                 ? "red"
-                                                : "green"
+                                                : OOR_DICT.hasOwnProperty(marker.name)
+                                                ? "green"
+                                                : "red"
                                             }
                                           />
                                         </div>

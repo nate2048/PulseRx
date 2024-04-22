@@ -8,7 +8,15 @@ import {
     Typography,
     Button,
   } from "@material-tailwind/react";
-  import Chart from "react-apexcharts";
+import Chart from "react-apexcharts";
+
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
+
+const client = axios.create({
+    baseURL: "http://127.0.0.1:8000"
+});
 
 const chartConfig = {
     type: "line",
@@ -100,13 +108,29 @@ const chartConfig = {
   };
 
 class Graphs extends React.Component {
+
     constructor(props){
         super(props)
-        this.state = {graph : 0}
+        this.state = {graph : 0, data : []}
         this.graph0 = this.graph0.bind(this)
         this.graph1 = this.graph1.bind(this)
         this.graph2 = this.graph2.bind(this)
+        this.init();
     }
+
+    async init() {
+      await this.fetchData()
+    }
+
+    async fetchData() {
+      const response = await client.get("/api/markers",
+          {'withCredentials': true })
+          .then(res => {
+            this.setState({ data: res.data });
+            console.log(res.data);
+          });
+    }
+
     graph0(){
         this.setState({graph : 0})
     }
@@ -119,12 +143,13 @@ class Graphs extends React.Component {
 
     render(){
         const isgraph = this.state.graph; 
+        const data = this.state.data;
         let graph; 
-        if(isgraph == 0){
+        if(isgraph === 0){
             graph = <div> EXAMPLE GRAPH, LET ME KNOW WHEN YOU FIGURE OUT HOW TO INPUT THE DATA <Chart {...chartConfig}/></div>;
-        } else if (isgraph == 1) {
+        } else if (isgraph === 1) {
             graph = <div> graph1 </div>;
-        } else if (isgraph == 2) {
+        } else if (isgraph === 2) {
             graph = <div> graph2, etc. </div>;
         }
         return(
@@ -135,6 +160,21 @@ class Graphs extends React.Component {
                     <Button onClick={this.graph1}> Graph1 </Button>
                     <Button onClick={this.graph2}> Graph2 </Button>
                 </div>
+                <ul>
+                    {Object.entries(data).map(([markerName, markerInfo]) => (
+                        <li key={markerName}>
+                            <h3>{markerName}</h3>
+                            <p>Associated Tests:</p>
+                            <ul>
+                                {markerInfo.tests.map(test => (
+                                    <li key={test.num}>
+                                        Test Date: {test.test_date}, Value: {test.val}
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }
