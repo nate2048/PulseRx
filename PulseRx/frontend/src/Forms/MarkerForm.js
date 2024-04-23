@@ -32,7 +32,9 @@ function MarkerForm({handleMarkerInfo}) {
     ];
 
 
-
+useEffect(() => {
+    handleMarkerInfo(markersList);
+}, [markersList]);
         // Handle marker selection
         const handleBloodMarkerChange = (marker) => {
             setBloodMarker(marker);

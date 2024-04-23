@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89813baf-60ec-4e7c-ad9e-88f0773bd276" name="Changes" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/FindMarker.css" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/FindMarker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/FindMarker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/MarkerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Forms/MarkerForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/InputForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/InputForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/TestModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/TestModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PulseRx/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/PulseRx/frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
