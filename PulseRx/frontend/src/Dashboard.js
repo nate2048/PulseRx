@@ -19,7 +19,8 @@ import {
   DocumentArrowUpIcon,
   PencilSquareIcon,
   ChartBarIcon,
-  PaperAirplaneIcon
+  PaperAirplaneIcon,
+  HeartIcon
 
 } from "@heroicons/react/24/solid";
 import {
@@ -122,17 +123,17 @@ function Dashboard({ logout, handleComponentClick }) {
           </AccordionBody>
         </Accordion>
         <hr className="my-2 border-blue-gray-50" />
-        <ListItem>
+        <ListItem onClick={() => handleClick("Profile")}>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
           Profile
         </ListItem>
-        <ListItem>
+        <ListItem onClick={() => handleClick("About")}>
           <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
+            <HeartIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Settings
+          About
         </ListItem>
         <ListItem>
           <ListItemPrefix>

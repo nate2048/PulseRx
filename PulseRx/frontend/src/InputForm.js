@@ -110,11 +110,14 @@ export function InputForm() {
     return (
         <div>
             {/* Pass the handleDataUpdate function as a prop to Modal */}
+            <div className='center'>
+              <Typography variant="h1" color="blue-gray">Blood Tests</Typography>
+            </div>
             <div class="vspace2em"></div>
             <Modal onSubmit={handleDataUpdate} />
             <div class="vspace1em"></div>
             <div className="rounded-md">
-            <Card className="h-full w-full overflow-scroll">
+            <Card className="h-full w-full overflow-scroll overflow-x-hidden">
                 <table className="w-full min-w-max table-auto text-left">
                     <thead>
                         <tr>
@@ -214,7 +217,7 @@ export function InputForm() {
                                 </Typography>
                             </CardHeader>
                             <CardBody className="center top">
-                              <div className="tableContainer rounded-md">
+                              <div className="tableContainer rounded-md overflow-x-hidden">
                               <table className="text-left" margin="auto">
                                 <thead>
                                   <tr>

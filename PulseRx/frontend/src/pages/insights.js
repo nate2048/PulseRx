@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Accordion, AccordionHeader, Card } from "@material-tailwind/react";
+import { Accordion, AccordionHeader, Card, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import MarkdownIt from "markdown-it";
 
@@ -65,8 +65,10 @@ function Insights() {
   if(responses === []) {return}
   return (
     <div>
-    <div class="vspace2em"></div>
-      <Card className="h-full w-full overflow-scroll">
+      <div className='center'>
+        <Typography variant="h1" color="blue-gray">Health Recommendations</Typography>
+      </div>
+      <Card className="h-full w-fullç">
         {tests.toReversed().map(({ pk, type, source, date }, index) => {
             if(!(pk.toString() in responses)) {return}
             var cur_test = responses[pk.toString()]
@@ -80,7 +82,7 @@ function Insights() {
                 <Accordion.Body>
                     {cur_test.map((test) => (
                         <div className="shiftRight3">
-                            <h2>Suggestions regarding {test.high_low} {test.marker}</h2>
+                            <h2 className="border-b">Suggestions regarding {test.high_low} {test.marker}</h2>
                             <div dangerouslySetInnerHTML={{__html: markdown.render(test.response)}}></div>
                         </div>
                     ))}

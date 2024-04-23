@@ -4,6 +4,8 @@ import Home from "./pages/home";
 import InputForm from "./InputForm";
 import Insights from "./pages/insights";
 import FindMarker from "./Forms/FindMarker";
+import About from "./about"
+import Profile from "./profile"
 
 
 function Layout({ logout }) {
@@ -28,6 +30,8 @@ function Layout({ logout }) {
         {selectedComponent === "Entry" && <InputForm />}
         {selectedComponent === "Insights" && <Insights />}
         {selectedComponent === "Document" && <FindMarker />}
+        {selectedComponent === "About" && <About />}
+        {selectedComponent === "Profile" && <Profile />}
 
       </div>
     </div>

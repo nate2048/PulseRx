@@ -56,6 +56,11 @@ span.input-group-addon {
   height: 2em;
 }
 
+.vspace5em {
+  clear: both;
+  height: 20em;
+}
+
 .shiftRight2 {
   margin-left: 2%;
 }
@@ -63,4 +68,10 @@ span.input-group-addon {
 .shiftRight3 {
   margin-left: 3%;
   margin-right: 3%;
+}
+
+.center20 {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
 }
