@@ -37,13 +37,13 @@ function About() {
             </p>
             <p>
                 <Card className="h-full w-full p-3">
-                    <Typography variant="h3" color="blue-gray" className='border-b'>Upcomming Features</Typography>
+                    <Typography variant="h3" color="blue-gray" className='border-b'>Upcoming Features</Typography>
                     <Typography color="blue-gray">
-                        We are excited to be launching an automatic document upload feature in the comming month
+                        We are excited to be launching an automatic document upload feature in the coming month
                         where all you have to do is upload a pdf of your blood test results and all of your health
-                        data is automatically uploaded to our database. Additionally, we plan to develop a calander
+                        data is automatically uploaded to our database. Additionally, we plan to develop a calendar
                         feature that automatically populates health and wellness reminders and can be added to your
-                        google calander.
+                        google calendar.
                     </Typography>
                 </Card>
             </p>
@@ -53,8 +53,10 @@ function About() {
                     <Typography color="blue-gray">
                         PulseRx uses ChatGpt to generate health insights based on your blood test results. 
                         Because of the occasional inaccuracy of ChatGPT, we recommend that you talk with 
-                        your doctor about any uncommon or questionable health. We plan to upgrade our 
-                        recommendation engine when generative AI models improve their accuracy.
+                        your doctor about before starting any new medications or making significant dietary
+                        or lifestyle changes. PulseRx should supplement regular consultations with a licensed
+                        healthcare provider.
+
                     </Typography>
                 </Card>
             </p>
