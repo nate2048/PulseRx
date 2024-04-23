@@ -28,8 +28,7 @@ function About() {
                     <Typography color="blue-gray">
                         Our team is dedicated to making health care services accessible and affordable.
                         This is why we offer our service completely free of charge and avoid using complex
-                        medical jargon. Interpreting blood test results is confusing and seeing a doctor is
-                        costly, however PulseRx solves both of those issues. We hope that our user friendly
+                        medical jargon. We hope that our user friendly
                         interface inspires you frequent our application to get the most out of your blood test 
                         results and improve your health.
                     </Typography>
