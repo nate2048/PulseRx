@@ -72,27 +72,22 @@ console.log(markerInfo)
             let test;
             test = response.data;
 
-
-//iterate through blood markers and upload them
-
-                 markerInfo.forEach((marker) => {
+            //iterate through blood markers and upload them
+            markerInfo.forEach((marker) => {
             // Perform API call with markerEntry
-
-                    console.log(marker.marker)
-                    client.post(
-                        "/api/markers",
-                        {
-                            blood_test: test,
-                            name: marker.marker,
-                            value: marker.value,
-                        }
-                    ).then(function (response) {
-
-                         client.post(
-                        `/api/gpt/${test}`)
-                    });
-
-            });
+            console.log(marker.marker)
+            client.post(
+                "/api/markers",
+                {
+                    blood_test: test,
+                    name: marker.marker,
+                    value: marker.value,
+                }
+            )});
+            return test;
+        }).then(function (test) {
+            client.post(
+           `/api/gpt/${test}`)
         });
 
 
