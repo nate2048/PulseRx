@@ -3,7 +3,6 @@ import Dashboard from "./Dashboard";
 import Home from "./pages/home";
 import InputForm from "./InputForm";
 import Insights from "./pages/insights";
-import FindMarker from "./Forms/FindMarker";
 import About from "./about"
 import Profile from "./profile"
 
@@ -25,11 +24,11 @@ function Layout({ logout }) {
         {/* this is so the component area can be scrollable - see .css file */}
       <div className="content">
 
+          {selectedComponent === null && <Home />}
         {selectedComponent === "Home" && <Home />}
 
         {selectedComponent === "Entry" && <InputForm />}
         {selectedComponent === "Insights" && <Insights />}
-        {selectedComponent === "Document" && <FindMarker />}
         {selectedComponent === "About" && <About />}
         {selectedComponent === "Profile" && <Profile />}
 

@@ -111,7 +111,7 @@ export function InputForm() {
         <div>
             {/* Pass the handleDataUpdate function as a prop to Modal */}
             <div className='center'>
-              <Typography variant="h1" color="blue-gray">Blood Tests</Typography>
+
             </div>
             <div class="vspace2em"></div>
             <Modal onSubmit={handleDataUpdate} />
