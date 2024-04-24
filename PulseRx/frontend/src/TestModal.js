@@ -73,17 +73,19 @@ console.log(markerInfo)
             test = response.data;
 
             //iterate through blood markers and upload them
-            markerInfo.forEach((marker) => {
-            // Perform API call with markerEntry
-            console.log(marker.marker)
-            client.post(
-                "/api/markers",
-                {
-                    blood_test: test,
-                    name: marker.marker,
-                    value: marker.value,
-                }
-            )});
+            axios.all(
+                markerInfo.map((marker) => {
+                // Perform API call with markerEntry
+                console.log(marker.marker)
+                client.post(
+                    "/api/markers",
+                    {
+                        blood_test: test,
+                        name: marker.marker,
+                        value: marker.value,
+                    }
+                )})
+            )
             return test;
         }).then(function (test) {
             client.post(

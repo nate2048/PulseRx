@@ -216,7 +216,7 @@ class Graphs extends React.Component {
 
         const data = this.state.data;
         const c = this.state.config;
-        let graph = <div class="w-6/12 "><Chart {...c}/></div>;
+        let graph = <div class=" "><Chart {...c}/></div>;
 
         return(
         <>

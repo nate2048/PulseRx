@@ -36,7 +36,7 @@ function UserComponent() {
 
     if(currentUser){
         return (
-            <div class="text-right text-black/60">
+            <div className="text-right text-indigo-400">
                 <h4 class="text-current/50"> Hello, {user.user.username}!</h4>
             </div>
         );

@@ -16,6 +16,13 @@
   left: 0; /* Position at the left of the view*/
 }
 
+.name {
+  display: flex;
+  position: fixed; /* Make the sidebar fixed */
+  top: 20px; /* Position at the top of the view */
+  right: 20px; /* Position at the left of the view*/
+}
+
 .content {
   flex: 1; /* Flexible content area */
   margin-left: 250px; /* Ensure content doesn't overlap with the sidebar */

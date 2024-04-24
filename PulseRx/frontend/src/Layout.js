@@ -5,6 +5,7 @@ import InputForm from "./InputForm";
 import Insights from "./pages/insights";
 import About from "./about"
 import Profile from "./profile"
+import UserComponent from './pages/customComponents/userComponent'
 
 
 function Layout({ logout }) {
@@ -16,6 +17,9 @@ function Layout({ logout }) {
 
   return (
     <div className="flex">
+      <div className="name">
+        <UserComponent />
+      </div>
       <div className="sidebar">
         {/* Fixed width sidebar - see .css file */}
           {/* The prop is again passed in here so dashboard has access to the logout function */}
@@ -24,7 +28,7 @@ function Layout({ logout }) {
         {/* this is so the component area can be scrollable - see .css file */}
       <div className="content">
 
-          {selectedComponent === null && <Home />}
+        {selectedComponent === null && <Home />}
         {selectedComponent === "Home" && <Home />}
 
         {selectedComponent === "Entry" && <InputForm />}
