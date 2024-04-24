@@ -27,6 +27,7 @@ import {
   ChevronDownIcon,
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
+import logo from './pulserx_logo.png';
 
 function Dashboard({ logout, handleComponentClick }) {
   const [open, setOpen] = React.useState(0);
@@ -44,10 +45,9 @@ function Dashboard({ logout, handleComponentClick }) {
   return (
     <Card color="blue-gray-100" className="h-full w-full max-w-[20rem] shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 flex items-center gap-4 p-4">
-        <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="h-8 w-8" />
-        <Typography variant="h5" color="blue-gray">
-          PulseRx
-        </Typography>
+        <div className="container px-5">
+          <img src={logo} width={50} height={50}/>
+        </div>
       </div>
       <List>
         <Accordion

@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Graphs from './graphs.js';
+import { Typography, Card, CardHeader } from "@material-tailwind/react";
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -24,38 +25,18 @@ function BloodTestComponent() {
             {'withCredentials': true });
         setTest(response.data);
     }
-
-    //???
     if(tests === []) {return}
 
     return (
         <div>
-            <h3>Blood Marker Test Charts:</h3>
-            <Graphs />
+            <div className='flex flex-col' style={{ gap: "20px" }}>
+                <div className='center'>
+                    <Typography variant="h1" color="blue-gray">Test Results</Typography>
+                </div>
+            </div>
+                <Graphs />
         </div>
     );
 }
 
 export default BloodTestComponent;
-
-/*
-            {
-                <ul>
-                    {Object.entries(tests).map(([markerName, markerInfo]) => (
-                        <li key={markerName}>
-                            <h3>{markerName}</h3>
-                            <p>Associated Tests:</p>
-                            <ul>
-                                {markerInfo.tests.map(test => (
-                                    <li key={test.num}>
-                                        Test Date: {test.test_date}, Value: {test.val}
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
-            }
-*/
-//deprecated, just shows random info, need to input into charts
-//leaving for reference 

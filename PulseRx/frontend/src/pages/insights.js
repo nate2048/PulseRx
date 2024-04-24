@@ -76,13 +76,13 @@ function Insights() {
             <Accordion open={openAccordion === index} icon={<Icon id={index} open={openAccordion} />}>
                 <AccordionHeader onClick={() => toggleAccordion(index)}>
                   <div className="shiftRight2">
-                    Response for {type} test at {source} on {date}
+                    Response for {type} Test at {source} on {date}:
                   </div>
                 </AccordionHeader>
                 <Accordion.Body>
                     {cur_test.map((test) => (
                         <div className="shiftRight3">
-                            <h2 className="border-b">Suggestions regarding {test.high_low} {test.marker}</h2>
+                            <h2 className="border-b">Suggestions Regarding {test.high_low} {test.marker}:</h2>
                             <div dangerouslySetInnerHTML={{__html: markdown.render(test.response)}}></div>
                         </div>
                     ))}
@@ -90,6 +90,9 @@ function Insights() {
             </Accordion>
             );
         })}
+      </Card>
+      <Card>
+        *Information generated with ChatGPT plugin. Please discuss any lifestyle changes with a medical professional first. 
       </Card>
     </div>
   );
