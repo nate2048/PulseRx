@@ -247,10 +247,10 @@ class gptNewResponseView(APIView):
 
         for marker in blood_markers:
 
-            if marker.name.lower() in self.normal_ranges:
+            if marker.name in self.normal_ranges:
 
-                low = self.normal_ranges[marker.name.lower()][0]
-                high = self.normal_ranges[marker.name.lower()][1]
+                low = self.normal_ranges[marker.name][0]
+                high = self.normal_ranges[marker.name][1]
 
                 if marker.value < low:
                     oor[marker.name] = "low"
@@ -258,8 +258,6 @@ class gptNewResponseView(APIView):
                 elif marker.value > high:
                     oor[marker.name] = "high"
 
-            else:
-                continue
 
         return oor
 
