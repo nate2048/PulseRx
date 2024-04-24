@@ -115,7 +115,7 @@ function config(xdata, ydata) {
       height: 240,
       series: [
         {
-          name: "Sales",
+          name: "Value",
           data: xdata,
         },
       ],
