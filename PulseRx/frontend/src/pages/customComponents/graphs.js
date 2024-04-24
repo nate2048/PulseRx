@@ -21,12 +21,7 @@ const client = axios.create({
 const defaultConfig = {
   type: "line",
   height: 240,
-  series: [
-    {
-      name: "Sales",
-      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-    },
-  ],
+  series: [],
   options: {
     chart: {
       toolbar: {
@@ -107,7 +102,6 @@ const defaultConfig = {
   },
 };
 
-//test
 function config(xdata, ydata) {
   return{
     chartConfig : {
@@ -115,7 +109,7 @@ function config(xdata, ydata) {
       height: 240,
       series: [
         {
-          name: "Sales",
+          name: "Value",
           data: xdata,
         },
       ],
@@ -222,7 +216,7 @@ class Graphs extends React.Component {
 
         const data = this.state.data;
         const c = this.state.config;
-        let graph = <div><Chart {...c}/></div>;
+        let graph = <div class="w-6/12 "><Chart {...c}/></div>;
 
         return(
         <>
@@ -237,7 +231,7 @@ class Graphs extends React.Component {
             const c = config(values, dates).chartConfig;
 
             return(
-              <div className="inline space-x-5">
+              <div className="inline space-x-5 pl-3 " >
                 <Button onClick={() => this.toggleMarker(index, c)}> {markerName} </Button>
               </div>
             )
