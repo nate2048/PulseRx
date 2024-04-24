@@ -45,11 +45,11 @@ To set up PulseRx locally, perform the following steps:
 
 Nathan Schoedl - Full Stack Developer
 
-Arthur (Rudy) Berry - Full Stack Devloper
+Arthur (Rudy) Berry - Full Stack Developer
 
-Khai Dao - Backend Devloper
+Khai Dao - Backend Developer
 
-Stella Rojas - Frontend Devloper
+Stella Rojas - Frontend Developer
 
 Mickey (Emma) MacKie - Project Advisor
 
