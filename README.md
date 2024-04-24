@@ -6,7 +6,7 @@ PulseRx is a web application designed to improve the health of its users by offe
 
 ## Demo
 
-Insert GIF
+![PulseRx-ezgif com-video-to-gif-converter](https://github.com/nate2048/PulseRx/assets/73554694/7c542b33-dcbb-4d22-ad8c-ee1ce8db9f78)
 
 ## Build with
 
