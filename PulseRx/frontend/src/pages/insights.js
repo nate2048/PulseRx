@@ -8,7 +8,7 @@ function Insights() {
 
   const [tests, setTests] = useState([]);
   const [responses, setResponses] = useState([]);
-  const [openAccordion, setOpenAccordion] = useState(null);
+  const [openAccordion, setOpenAccordion] = useState(0);
 
   const markdown = new MarkdownIt();
 
@@ -68,7 +68,7 @@ function Insights() {
       <div className='center'>
         <Typography variant="h1" color="blue-gray">Health Recommendations</Typography>
       </div>
-      <Card className="h-full w-fullç">
+      <Card className="h-full w-full">
         {tests.toReversed().map(({ pk, type, source, date }, index) => {
             if(!(pk.toString() in responses)) {return}
             var cur_test = responses[pk.toString()]

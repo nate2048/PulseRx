@@ -36,7 +36,7 @@ const defaultTableData = [];
 export function InputForm() {
     const [tableData, setTableData] = useState(defaultTableData);
     const [markers, setMarkers] = useState([]);
-    const [openAccordion, setOpenAccordion] = useState(null);
+    const [openAccordion, setOpenAccordion] = useState(0);
     const [deleteItem, setDeleteItem] = useState(false);
 
     // Function to fetch data
