@@ -39,8 +39,8 @@ CSRF_TRUSTED_ORIGINS = [
 
 CSRF_COOKIE_HTTPONLY = False
 
-OPENAI_API_KEY = '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'
-openai.api_key = OPENAI_API_KEY
+# OPENAI_API_KEY
+# openai.api_key = OPENAI_API_KEY
 
 # Application definition
 
